@@ -4,7 +4,8 @@
 
   const KEYS = {
     bank: 'insp_tests_bank_v1', history: 'insp_tests_history_v1', missed: 'insp_tests_missed_v1',
-    active: 'insp_tests_active_v1', result: 'insp_tests_result_v1'
+    active: 'insp_tests_active_v1', result: 'insp_tests_result_v1',
+    custom: 'insp_tests_csv_custom_v2'
   };
   const LETTERS = ['A', 'B', 'C', 'D'];
   const MAX_HISTORY = 100;
@@ -17,7 +18,7 @@
   const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, (c) =>
     ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
   const getJSON = (key, fallback) => { try { const data = localStorage.getItem(key); return data === null ? fallback : JSON.parse(data); } catch { return fallback; } };
-  const setJSON = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { showNotice('No s’ha pogut desar al navegador. Exporta el banc JSON per evitar perdre les dades.', 'error'); return false; } };
+  const setJSON = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { showNotice('No s’ha pogut desar al navegador. Exporta el banc CSV per evitar perdre les dades.', 'error'); return false; } };
   const setSession = (key, value) => { try { sessionStorage.setItem(key, JSON.stringify(value)); } catch { /* no persistence */ } };
   const readSession = (key) => { try { return JSON.parse(sessionStorage.getItem(key) || 'null'); } catch { return null; } };
   const removeSession = (key) => { try { sessionStorage.removeItem(key); } catch { /* noop */ } };
@@ -49,7 +50,7 @@
     return {id, bloc, tema, enunciat, opcions, correcta, explicacio, ...(String(q.origen ?? '').trim() ? {origen:String(q.origen).trim()} : {}), ...(q.demo === true ? {demo:true} : {})};
   }
   function validateBank(items) {
-    if (!Array.isArray(items)) throw Error('El JSON ha de contenir un array de preguntes (o un objecte amb "preguntes").');
+    if (!Array.isArray(items)) throw Error('Cal un banc de preguntes vàlid.');
     const questions = items.map(normalizeQuestion);
     const ids = new Set();
     for (const q of questions) { if (ids.has(q.id)) throw Error(`L'identificador "${q.id}" està repetit al fitxer.`); ids.add(q.id); }
@@ -75,7 +76,10 @@
     const headers = rows.shift().map((v) => v.replace(/^\uFEFF/, '').trim().toLowerCase());
     const required = ['id','bloc','tema','enunciat','opcio_a','opcio_b','opcio_c','opcio_d','correcta'];
     for (const col of required) if (!headers.includes(col)) throw Error(`Al CSV falta la columna "${col}".`);
-    return rows.map((cells) => Object.fromEntries(headers.map((key, index) => [key, cells[index] ?? ''])));
+    return rows.map((cells, i) => {
+      if (cells.length !== headers.length) throw Error(`Fila ${i + 2}: hi ha ${cells.length} columnes, però la capçalera en té ${headers.length}. Comprova les comes i les cometes.`);
+      return Object.fromEntries(headers.map((key, index) => [key, cells[index] ?? '']));
+    });
   }
   async function readFile(file) {
     const text = await file.text();
@@ -84,16 +88,24 @@
     catch (error) { if (error instanceof SyntaxError) throw Error('El JSON no és vàlid. Revisa les cometes i les comes.'); throw error; }
   }
   async function fetchDefault() {
-    const response = await fetch('./preguntes.json', {cache:'no-store'});
-    if (!response.ok) throw Error(`Error HTTP ${response.status}`);
-    const payload = await response.json();
-    return validateBank(Array.isArray(payload) ? payload : payload.preguntes);
+    // Font de dades principal: preguntes.csv. No cal cap JSON a GitHub.
+    // En local (file://), els navegadors bloquegen fetch() i fem servir
+    // una còpia CSV integrada a index.html per a la primera prova.
+    if (location.protocol === 'file:') {
+      const el = $('embeddedQuestionBank');
+      if (!el) throw Error('No hi ha banc CSV integrat a index.html.');
+      return validateBank(parseCSV(el.textContent));
+    }
+    const response = await fetch(`./preguntes.csv?v=${Date.now()}`, {cache:'no-store'});
+    if (!response.ok) throw Error(`Error HTTP ${response.status} en carregar preguntes.csv`);
+    return validateBank(parseCSV(await response.text()));
   }
+
   function persistBank() { return setJSON(KEYS.bank, state.bank); }
   function persistActivity() { setJSON(KEYS.history, state.history); setJSON(KEYS.missed, state.missed); }
   function persistActive() { if (state.active) setSession(KEYS.active, state.active); else removeSession(KEYS.active); }
   function pruneMissed() { const ids = new Set(state.bank.map((q) => q.id)); state.missed = state.missed.filter((id) => ids.has(id)); setJSON(KEYS.missed, state.missed); }
-  function commitBank(newBank) { state.bank = newBank; persistBank(); pruneMissed(); renderAll(); }
+  function commitBank(newBank) { state.bank = newBank; persistBank(); setJSON(KEYS.custom, true); pruneMissed(); renderAll(); }
 
   function getBlocks() { return unique(state.bank.map((q) => q.bloc)).sort((a,b) => a-b); }
   function getTopics(bloc) { return unique(state.bank.filter((q) => q.bloc === Number(bloc)).map((q) => q.tema)).sort(compareTopics); }
@@ -330,7 +342,7 @@
       const current = state.editingId ? byId(state.editingId) : null;
       if (current?.demo) question.demo = true;
       const next = state.editingId ? state.bank.map((q) => q.id === state.editingId ? question : q) : [...state.bank,question];
-      commitBank(next); closeEditor(); showNotice('Pregunta desada al navegador. Recorda exportar el JSON si vols actualitzar el banc de GitHub.');
+      commitBank(next); closeEditor(); showNotice("Pregunta desada al navegador. Exporta el CSV i puja'l a GitHub per actualitzar el banc compartit.");
     } catch (error) { $('editError').textContent = error.message; $('editError').hidden = false; }
   }
   function downloadFile(filename, text, mime) {
@@ -339,9 +351,19 @@
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   function exportBank() {
-    const cleaned = state.bank.map(({demo, ...question}) => question);
-    downloadFile('preguntes.json', JSON.stringify({preguntes:cleaned}, null, 2) + '\n', 'application/json;charset=utf-8');
+    // Exportació CSV amb cometes escapades segons RFC 4180 i UTF-8 amb BOM.
+    // Compatible amb Excel / LibreOffice, incloses comes i salts de línia.
+    const headers = ['id','bloc','tema','enunciat','opcio_a','opcio_b','opcio_c','opcio_d','correcta','explicacio','origen'];
+    const csvCell = (value) => {
+      const text = String(value ?? '');
+      return /[",\r\n]/.test(text) || /^\s|\s$/.test(text) ? `"${text.replace(/"/g,'""')}"` : text;
+    };
+    const records = state.bank.map((q) => [q.id, q.bloc, q.tema, q.enunciat,
+      ...q.opcions, q.correcta, q.explicacio, q.origen ?? '']);
+    const content = '\uFEFF' + [headers, ...records].map((row) => row.map(csvCell).join(',')).join('\r\n') + '\r\n';
+    downloadFile('preguntes.csv', content, 'text/csv;charset=utf-8');
   }
+
   function downloadTemplate() {
     const columns = 'id,bloc,tema,enunciat,opcio_a,opcio_b,opcio_c,opcio_d,correcta,explicacio,origen';
     const sample = '7.3-001,7,7.3,"Quina resposta és la correcta?","Opció A","Opció B","Opció C","Opció D",B,"Explicació opcional","Test del tema 7.3"';
@@ -362,17 +384,18 @@
         result = [...map.values()];
       }
       commitBank(result); $('importOptions').hidden = true;
-      showNotice(`${parsed.length} preguntes importades correctament. Banc actual: ${result.length} preguntes. Exporta'l per pujar-lo a GitHub.`);
+      showNotice(`${parsed.length} preguntes importades correctament. Banc actual: ${result.length} preguntes. Exporta el CSV per pujar-lo a GitHub.`);
     } catch (error) { showNotice(`No s'ha pogut importar: ${error.message}`, 'error'); }
   }
   async function resetBank() {
-    if (!window.confirm('Es perdran les preguntes afegides o modificades només en aquest navegador si no les has exportat. Vols restaurar el fitxer preguntes.json del repositori?')) return;
+    if (!window.confirm('Es perdran les preguntes afegides o modificades només en aquest navegador si no les has exportat. Vols restaurar el fitxer preguntes.csv del repositori?')) return;
     try {
       const fresh = await fetchDefault();
       state.bank = fresh; state.defaultBank = fresh;
       localStorage.removeItem(KEYS.bank);
-      pruneMissed(); closeEditor(); renderAll(); showNotice('Banc restaurat a partir del fitxer preguntes.json.');
-    } catch { showNotice('No es pot recuperar preguntes.json. Comprova que accedeixes a la web amb GitHub Pages (o un servidor local).', 'error'); }
+      localStorage.removeItem(KEYS.custom);
+      pruneMissed(); closeEditor(); renderAll(); showNotice(location.protocol === 'file:' ? 'Banc inicial integrat restaurat. Per provar un CSV actualitzat localment, importa’l.' : 'Banc restaurat a partir del fitxer preguntes.csv de GitHub.');
+    } catch { showNotice('No s’ha pogut recuperar el banc inicial. Comprova que els fitxers siguin complets.', 'error'); }
   }
   function renderAll() { renderHome(); if (state.view === 'bank') renderBank(); }
 
@@ -442,6 +465,10 @@
 
   async function init() {
     bindEvents();
+    if (location.protocol === 'file:') {
+      $('resetBankBtn').textContent = 'Restaurar banc inicial';
+      $('resetBankBtn').title = 'Recupera les preguntes CSV integrades a index.html';
+    }
     state.history = getJSON(KEYS.history, []);
     if (!Array.isArray(state.history)) state.history = [];
     state.missed = getJSON(KEYS.missed, []);
@@ -450,11 +477,30 @@
     try {
       state.defaultBank = await fetchDefault(); state.fileLoaded = true;
     } catch (error) {
-      showNotice('No s’ha pogut carregar preguntes.json. A GitHub Pages funcionarà directament; per provar-ho en local, inicia un servidor HTTP o importa un JSON/CSV.', 'error');
+      showNotice('No s’ha pogut carregar el banc. Comprova que preguntes.csv sigui a l’arrel de GitHub o utilitza Importar CSV.', 'error');
     }
     const localBank = getJSON(KEYS.bank, null);
-    try { state.bank = localBank === null ? state.defaultBank : validateBank(localBank); }
-    catch { state.bank = state.defaultBank; showNotice('El banc desat al navegador era invàlid. S’ha recuperat el banc del repositori.', 'error'); }
+    let useLocal = getJSON(KEYS.custom, null) === true;
+    // Migració de 2.1: les còpies exactes de les 59 preguntes originals
+    // no han de bloquejar actualitzacions futures del CSV de GitHub.
+    // En canvi, preservem els bancs antics que l'usuari hagi modificat.
+    if (getJSON(KEYS.custom, null) === null && localBank !== null) {
+      try {
+        const embedded = validateBank(parseCSV($('embeddedQuestionBank').textContent));
+        if (JSON.stringify(validateBank(localBank)) !== JSON.stringify(embedded)) {
+          useLocal = true;
+          setJSON(KEYS.custom, true);
+          showNotice('Hem preservat un banc modificat al navegador de la versió anterior. Per carregar el CSV actual de GitHub, ves a Preguntes → Restaurar CSV de GitHub (exporta abans els canvis locals).', 'info');
+        } else {
+          localStorage.removeItem(KEYS.bank);
+        }
+      } catch {
+        useLocal = true;
+        setJSON(KEYS.custom, true);
+      }
+    }
+    try { state.bank = useLocal && localBank !== null ? validateBank(localBank) : state.defaultBank; }
+    catch { state.bank = state.defaultBank; localStorage.removeItem(KEYS.custom); showNotice('El banc local era invàlid. S’ha recuperat el CSV del repositori.', 'error'); }
     pruneMissed();
     const saved = readSession(KEYS.active);
     if (saved && Array.isArray(saved.items) && saved.items.length && saved.items.every((item) => item.question || byId(item.id)) && saved.answers && typeof saved.current === 'number') {
