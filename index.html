@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#201544">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <meta name="description" content="Tests interactius per preparar les oposicions d'inspector/a: per tema, bloc o tot el temari.">
+  <title>INSPECTOR · Entrenador de tests</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Salta al contingut</a>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <button class="logo-btn" type="button" data-nav="home" aria-label="Torna a l'inici">
+        <span class="logo-symbol" aria-hidden="true">I<span class="logo-dot">.</span></span>
+        <span class="brand-text"><strong>INSPECTOR</strong><small>ACADEMY · OPOSICIONS</small></span>
+      </button>
+      <nav class="main-nav" aria-label="Navegació principal">
+        <button class="nav-link active" type="button" data-nav="home">Preparar test</button>
+        <button class="nav-link" type="button" data-nav="bank">Preguntes <span id="navBankCount" class="nav-number">0</span></button>
+        <button class="nav-link" type="button" data-nav="help">Ajuda</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap main-content">
+    <div id="notice" class="notice" hidden role="status" aria-live="polite"></div>
+
+    <section id="homeView" class="view" aria-labelledby="homeHeading">
+      <div class="hero">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-line"></span> LA TEVA PREPARACIÓ COMENÇA AQUÍ</p>
+          <h1 id="homeHeading">Fes del repàs<br><em>el teu avantatge.</em></h1>
+          <p class="hero-subtitle">La teva acadèmia de tests. Estudia amb intenció, entrena amb preguntes reals del teu material i converteix cada error en un nou encert.</p>
+        </div>
+        <div class="hero-decoration" aria-hidden="true">
+          <span class="hero-ring ring-one"></span><span class="hero-ring ring-two"></span>
+          <span class="hero-glyph">IN<span>·</span></span>
+          <span class="hero-tag">PREPARACIÓ AMB CRITERI</span>
+        </div>
+      </div>
+
+      <div id="demoBanner" class="demo-banner" hidden>
+        <span class="demo-icon" aria-hidden="true">ⓘ</span>
+        <p><strong>Banc de demostració.</strong> Les preguntes actuals només serveixen per provar el programa; no són preguntes de l'oposició. Pots substituir-les a <button type="button" class="inline-action" data-nav="bank">Preguntes</button>.</p>
+      </div>
+
+      <div id="resumeBanner" class="resume-banner" hidden>
+        <div><strong>Tens un test a mitges</strong><p id="resumeDescription">Pots continuar-lo on el vas deixar.</p></div>
+        <div class="resume-actions"><button id="resumeBtn" class="btn btn-primary" type="button">Continuar test →</button><button id="discardBtn" class="btn btn-outline" type="button">Descartar</button></div>
+      </div>
+
+      <div class="stat-grid" aria-label="Estadístiques del banc">
+        <div class="stat-card"><span class="stat-label">Preguntes disponibles</span><strong id="statQuestions">—</strong><span class="stat-meta">al banc actual</span></div>
+        <div class="stat-card"><span class="stat-label">Temes carregats</span><strong id="statTopics">—</strong><span class="stat-meta">dels 8 blocs</span></div>
+        <div class="stat-card"><span class="stat-label">Tests finalitzats</span><strong id="statTests">—</strong><span class="stat-meta">en aquest dispositiu</span></div>
+        <div class="stat-card accent-stat"><span class="stat-label">Preguntes per repassar</span><strong id="statErrors">—</strong><span class="stat-meta">fallades en tests anteriors</span></div>
+      </div>
+
+      <div class="workspace-grid">
+        <section class="panel setup-panel" aria-labelledby="setupHeading">
+          <div class="panel-heading"><div><p class="section-kicker">NOU TEST</p><h2 id="setupHeading">Dissenya el teu test</h2></div><span class="panel-chip">PAS 01 / 02</span></div>
+          <fieldset class="fieldset-reset">
+            <legend class="field-title">1. Què vols estudiar?</legend>
+            <div class="scope-options" id="scopeOptions">
+              <label class="scope-option"><input type="radio" name="scope" value="all" checked><span class="scope-icon" aria-hidden="true">◎</span><span class="scope-title">Tot el temari</span><span class="scope-caption">Tots els blocs</span></label>
+              <label class="scope-option"><input type="radio" name="scope" value="block"><span class="scope-icon" aria-hidden="true">▦</span><span class="scope-title">Un bloc</span><span class="scope-caption">Tots els seus temes</span></label>
+              <label class="scope-option"><input type="radio" name="scope" value="topic"><span class="scope-icon" aria-hidden="true">▤</span><span class="scope-title">Un tema</span><span class="scope-caption">Màxima precisió</span></label>
+            </div>
+          </fieldset>
+          <div id="filterFields" class="filter-fields" hidden>
+            <div class="field" id="blockField"><label for="blockSelect">Bloc</label><select id="blockSelect"></select></div>
+            <div class="field" id="topicField" hidden><label for="topicSelect">Tema</label><select id="topicSelect"></select></div>
+          </div>
+          <fieldset class="fieldset-reset amount-fieldset">
+            <legend class="field-title">2. Nombre de preguntes</legend>
+            <div class="amount-options">
+              <label><input type="radio" name="amount" value="10" checked><span>10<small>Ràpid</small></span></label>
+              <label><input type="radio" name="amount" value="30"><span>30<small>Estàndard</small></span></label>
+              <label><input type="radio" name="amount" value="50"><span>50<small>Intensiu</small></span></label>
+            </div>
+          </fieldset>
+          <div class="setup-foot">
+            <p id="availableHint" class="available-hint" aria-live="polite">—</p>
+            <button id="startBtn" class="btn btn-primary btn-large" type="button">Comença a practicar <span aria-hidden="true">↗</span></button>
+          </div>
+        </section>
+
+        <aside class="side-stack">
+          <section class="panel side-panel" aria-labelledby="repeatHeading">
+            <div class="side-heading"><span class="circle-icon" aria-hidden="true">↻</span><div><p class="section-kicker">PRÀCTICA INTEL·LIGENT</p><h2 id="repeatHeading">Repassa els errors</h2></div></div>
+            <p>Recupera les preguntes que has fallat en tests anteriors i treballa-hi fins que les encertis.</p>
+            <button id="repeatSavedBtn" class="btn btn-secondary" type="button">Practicar errors pendents <span id="pendingCount">(0)</span></button>
+          </section>
+          <section class="panel history-panel" aria-labelledby="historyHeading">
+            <div class="side-heading history-heading"><div><p class="section-kicker">EVOLUCIÓ</p><h2 id="historyHeading">El teu progrés</h2></div></div>
+            <div id="historyList" class="history-list"><p class="muted">Encara no has finalitzat cap test.</p></div>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <section id="quizView" class="view" hidden aria-labelledby="quizHeading">
+      <div class="test-topbar"><button type="button" class="back-link" id="quitTestBtn">← Abandonar test</button><span id="quizScope" class="test-badge">Tot el temari</span><span id="testTime" class="time-chip">00:00</span></div>
+      <div class="quiz-layout">
+        <section class="panel question-panel" aria-labelledby="quizHeading">
+          <div class="quiz-progress-info"><span id="questionCounter" class="section-kicker">PREGUNTA 1 DE 10</span><span id="answeredCounter" class="answered-counter">0 respostes</span></div>
+          <div class="progress-track" role="progressbar" aria-label="Preguntes respostes" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressTrack"><div id="progressFill" class="progress-fill"></div></div>
+          <p id="questionMeta" class="question-meta"></p>
+          <h1 id="quizHeading" class="question-title"></h1>
+          <div id="answerOptions" class="answers" role="radiogroup" aria-label="Opcions de resposta"></div>
+          <div class="question-actions"><button id="prevBtn" class="btn btn-outline" type="button">← Anterior</button><button id="nextBtn" class="btn btn-primary" type="button">Següent →</button><button id="finishBtn" class="btn btn-primary" type="button" hidden>Finalitza i corregeix ✓</button></div>
+        </section>
+        <aside class="panel quiz-aside"><div class="panel-heading small"><div><p class="section-kicker">NAVEGACIÓ</p><h2>Preguntes</h2></div></div><p class="muted small-text">Toca un número per canviar de pregunta.</p><div id="questionGrid" class="question-grid"></div><div class="legend"><span><i class="legend-dot legend-answered"></i> Resposta marcada</span><span><i class="legend-dot legend-current"></i> Actual</span></div><button id="finishAsideBtn" class="btn btn-secondary full-width" type="button">Finalitza el test</button></aside>
+      </div>
+    </section>
+
+    <section id="resultView" class="view" hidden aria-labelledby="resultsHeading">
+      <div class="results-intro"><div><p class="section-kicker">TEST FINALITZAT</p><h1 id="resultsHeading">Els teus resultats</h1><p id="resultScope" class="muted"></p></div><button class="btn btn-outline" data-nav="home" type="button">← Preparar un altre test</button></div>
+      <div class="panel result-card"><div class="score-circle"><span id="resultPercent">—</span><small>D'ENCERTS</small></div><div class="score-content"><h2 id="scoreMessage">Test completat</h2><p id="scoreSentence">—</p><div class="score-breakdown"><span class="score-good"><strong id="scoreRight">0</strong> encertades</span><span class="score-bad"><strong id="scoreWrong">0</strong> errònies</span><span class="score-empty"><strong id="scoreBlank">0</strong> sense respondre</span></div></div></div>
+      <div class="result-toolbar"><div><p class="section-kicker">REVISIÓ D'APRENENTATGE</p><h2>Correcció de preguntes</h2><p class="muted" id="reviewHint">Les errònies i les no respostes apareixen primer.</p></div><div class="result-buttons"><button id="repeatWrongBtn" class="btn btn-primary" type="button">Repetir les fallades ↻</button><button id="toggleAllBtn" class="btn btn-outline" type="button">Veure totes</button></div></div>
+      <div id="reviewList" class="review-list"></div>
+    </section>
+
+    <section id="bankView" class="view" hidden aria-labelledby="bankHeading">
+      <div class="page-intro"><p class="section-kicker">ADMINISTRACIÓ LOCAL</p><h1 id="bankHeading">Banc de preguntes</h1><p>Gestiona les preguntes i importa fitxers JSON o CSV. No cal cap servidor ni base de dades de pagament.</p></div>
+      <div class="bank-actions panel">
+        <div class="bank-summary"><strong id="bankCount">0</strong><span>preguntes disponibles</span><span class="bank-divider"></span><strong id="bankTopicCount">0</strong><span>temes</span></div>
+        <div class="bank-toolbar"><button id="addQuestionBtn" class="btn btn-primary" type="button">+ Nova pregunta</button><button id="importBtn" class="btn btn-secondary" type="button">↑ Importar fitxer</button><button id="exportBtn" class="btn btn-outline" type="button">↓ Exportar JSON</button></div>
+        <input id="importFile" type="file" accept=".json,.csv,application/json,text/csv" hidden aria-label="Fitxer de preguntes">
+        <div id="importOptions" class="import-options" hidden><label for="importMode">Com s'han d'importar les preguntes?</label><select id="importMode"><option value="replace">Substituir tot el banc actual</option><option value="merge">Afegir-les / actualitzar les que tinguin el mateix ID</option></select><button id="chooseImportBtn" class="btn btn-primary" type="button">Seleccionar fitxer .json o .csv</button><button id="cancelImportBtn" class="btn btn-plain" type="button">Cancel·lar</button></div>
+      </div>
+      <div id="localWarning" class="local-warning"><strong>Important:</strong> Les edicions fetes aquí es desen només en aquest navegador. Per compartir les mateixes preguntes entre PC i mòbil, exporta el JSON i puja'l al repositori de GitHub com a <code>preguntes.json</code>.</div>
+      <form id="questionForm" class="panel editor-panel" hidden novalidate>
+        <div class="panel-heading"><div><p class="section-kicker">EDITOR</p><h2 id="editorHeading">Afegir pregunta</h2></div><button id="closeEditorBtn" type="button" class="icon-close" aria-label="Tancar editor">×</button></div>
+        <div class="editor-grid"><div class="field"><label for="editId">Identificador únic *</label><input id="editId" maxlength="70" required placeholder="p. ex. 7.3-001"></div><div class="field"><label for="editBloc">Bloc *</label><select id="editBloc" required><option value="1">Bloc 1</option><option value="2">Bloc 2</option><option value="3">Bloc 3</option><option value="4">Bloc 4</option><option value="5">Bloc 5</option><option value="6">Bloc 6</option><option value="7">Bloc 7</option><option value="8">Bloc 8</option></select></div><div class="field"><label for="editTema">Tema *</label><input id="editTema" maxlength="100" required placeholder="p. ex. 7.3"></div><div class="field"><label for="editCorrecta">Resposta correcta *</label><select id="editCorrecta"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select></div></div>
+        <div class="field"><label for="editEnunciat">Enunciat *</label><textarea id="editEnunciat" rows="3" maxlength="3000" required placeholder="Escriu aquí la pregunta..."></textarea></div>
+        <div class="editor-grid options-grid"><div class="field"><label for="editA">Opció A *</label><textarea id="editA" rows="2" required></textarea></div><div class="field"><label for="editB">Opció B *</label><textarea id="editB" rows="2" required></textarea></div><div class="field"><label for="editC">Opció C *</label><textarea id="editC" rows="2" required></textarea></div><div class="field"><label for="editD">Opció D *</label><textarea id="editD" rows="2" required></textarea></div></div>
+        <div class="field"><label for="editExplicacio">Explicació (opcional)</label><textarea id="editExplicacio" rows="2" placeholder="Per què és aquesta la resposta correcta?"></textarea></div>
+        <p class="form-error" id="editError" role="alert" hidden></p><div class="editor-actions"><button type="submit" class="btn btn-primary">Desar pregunta</button><button id="cancelEditBtn" type="button" class="btn btn-outline">Cancel·lar</button></div>
+      </form>
+      <div class="panel question-list-panel"><div class="list-toolbar"><div class="field search-field"><label for="bankSearch">Cerca al banc</label><input id="bankSearch" type="search" placeholder="Text de la pregunta, bloc o tema..."></div><div class="list-tools"><button id="downloadTemplateBtn" class="text-action" type="button">Baixar plantilla CSV ↘</button><button id="removeDemoBtn" class="text-action danger-text" type="button" hidden>Eliminar exemples demo</button><button id="resetBankBtn" class="text-action danger-text" type="button">Restaurar fitxer de GitHub</button></div></div><div id="questionList" class="bank-question-list"></div><p id="bankListFoot" class="list-foot"></p></div>
+    </section>
+
+    <section id="helpView" class="view" hidden aria-labelledby="helpHeading">
+      <div class="page-intro"><p class="section-kicker">GUIA D'ÚS</p><h1 id="helpHeading">Com funciona?</h1><p>Un programa HTML + JavaScript estàtic. Funciona a GitHub Pages, sense registre ni serveis externs.</p></div>
+      <div class="help-grid"><div class="panel help-card"><span class="help-number">01</span><h2>Carrega les preguntes</h2><p>Fes servir <strong>Preguntes → Importar fitxer</strong> per carregar un JSON o CSV, o afegeix preguntes amb l'editor incorporat.</p></div><div class="panel help-card"><span class="help-number">02</span><h2>Tria el teu temari</h2><p>Selecciona tot el temari, un bloc complet o un tema concret. Tria entre <strong>10, 30 o 50</strong> preguntes (sense repeticions).</p></div><div class="panel help-card"><span class="help-number">03</span><h2>Respon i revisa</h2><p>Passa d'una pregunta a una altra, deixa'n en blanc si vols i, en finalitzar, revisa errors, encerts i explicacions.</p></div><div class="panel help-card"><span class="help-number">04</span><h2>Guarda el banc a GitHub</h2><p>Exporta el banc en JSON i substitueix <code>preguntes.json</code> al teu repositori. Així es carregarà a qualsevol dispositiu.</p></div></div>
+      <section class="panel help-details"><h2>Format de les dades</h2><p>El fitxer <code>preguntes.json</code> conté un objecte amb la propietat <code>preguntes</code>. Cada pregunta ha de tenir aquests camps:</p><pre><code>{
+  "id": "7.3-001",
+  "bloc": 7,
+  "tema": "7.3",
+  "enunciat": "Enunciat de la pregunta?",
+  "opcions": ["Resposta A", "Resposta B", "Resposta C", "Resposta D"],
+  "correcta": "B",
+  "explicacio": "Explicació opcional"
+}</code></pre><p>Per importar un CSV, fes servir aquestes columnes: <code>id, bloc, tema, enunciat, opcio_a, opcio_b, opcio_c, opcio_d, correcta, explicacio, origen</code>. El programa detecta automàticament els temes dels fitxers importats. La columna «origen» és opcional i permet mantenir el qüestionari de procedència.</p><h3>Dades i privacitat</h3><p>Les respostes, els resultats i les preguntes editades es desen localment al navegador. No es transfereixen a cap servidor. <strong>GitHub Pages no pot escriure automàticament al teu repositori.</strong> Si vols actualitzar el banc comú, cal exportar-lo i pujar el fitxer manualment. Les estadístiques de PC i mòbil no se sincronitzen.</p><h3>Correcció</h3><p>Una resposta correcta suma un encert. Una resposta incorrecta suma un error. Les no contestades es compten a part. El percentatge és <strong>encerts / preguntes totals × 100</strong>, sense penalització addicional.</p></section>
+    </section>
+  </main>
+  <footer class="site-footer wrap"><span>INSPECTOR · Tests d'estudi</span><span>Dissenyat per estudiar millor · Dades al teu dispositiu</span></footer>
+</body>
+</html>

@@ -1,0 +1,889 @@
+{
+  "preguntes": [
+    {
+      "id": "8.1-D-001",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "A partir de quina edat es pot exercir el dret d’accés a la informació pública segons la Llei 19/2014?",
+      "opcions": [
+        "14 anys",
+        "16 anys",
+        "18 anys",
+        "21 anys"
+      ],
+      "correcta": "B",
+      "explicacio": "La Llei 19/2014 reconeix l’exercici del dret des dels 16 anys.",
+      "origen": "Diagnòstic inicial"
+    },
+    {
+      "id": "8.1-D-002",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "Quants membres integren la GAIP segons l’article 40 del temari?",
+      "opcions": [
+        "3 a 5",
+        "5 a 7",
+        "3 a 7",
+        "Exactament 5"
+      ],
+      "correcta": "A",
+      "explicacio": "La GAIP està integrada per un mínim de 3 i un màxim de 5 membres.",
+      "origen": "Diagnòstic inicial"
+    },
+    {
+      "id": "8.1-D-003",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "Quin és el termini per interposar una reclamació davant la GAIP?",
+      "opcions": [
+        "15 dies",
+        "1 mes",
+        "2 mesos",
+        "3 mesos"
+      ],
+      "correcta": "B",
+      "explicacio": "El termini és d’un mes des dels moments previstos a la llei.",
+      "origen": "Diagnòstic inicial"
+    },
+    {
+      "id": "8.2-D-004",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "Quan pot un menor consentir autònomament el tractament de les seves dades segons la LO 3/2018, amb les excepcions legals?",
+      "opcions": [
+        "Des dels 12 anys",
+        "Des dels 14 anys",
+        "Quan sigui més gran de 14 anys",
+        "Des dels 16 anys"
+      ],
+      "correcta": "C",
+      "explicacio": "Es conserva la formulació i la clau del primer test original; cal tenir present el redactat legal precís quan s’estudiï.",
+      "origen": "Diagnòstic inicial"
+    },
+    {
+      "id": "8.3-D-005",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Quina és la revisió màxima periòdica de conservació de dades de la LO 7/2021?",
+      "opcions": [
+        "Cada any",
+        "Cada 2 anys",
+        "Cada 3 anys",
+        "Cada 5 anys"
+      ],
+      "correcta": "C",
+      "explicacio": "Cal revisar la necessitat de conservar les dades, com a màxim, cada 3 anys.",
+      "origen": "Diagnòstic inicial"
+    },
+    {
+      "id": "8.3-D-006",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Quin és el termini general màxim de supressió de dades de la LO 7/2021?",
+      "opcions": [
+        "5 anys",
+        "10 anys",
+        "15 anys",
+        "20 anys, amb excepcions"
+      ],
+      "correcta": "D",
+      "explicacio": "Amb caràcter general, 20 anys, llevat de supòsits justificats.",
+      "origen": "Diagnòstic inicial"
+    },
+    {
+      "id": "8.3-D-007",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Quina és la durada màxima inicial de l’autorització de dispositius mòbils policials?",
+      "opcions": [
+        "15 dies",
+        "1 mes",
+        "2 mesos",
+        "6 mesos"
+      ],
+      "correcta": "B",
+      "explicacio": "Un mes inicial, prorrogable per un altre mes.",
+      "origen": "Diagnòstic inicial"
+    },
+    {
+      "id": "8.3-D-008",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "En cas d’urgència, en quin termini màxim s’ha de comunicar l’ús de dispositius mòbils policials?",
+      "opcions": [
+        "12 hores",
+        "24 hores",
+        "48 hores",
+        "72 hores"
+      ],
+      "correcta": "B",
+      "explicacio": "Comunicació tan aviat com sigui possible i sempre en 24 hores.",
+      "origen": "Diagnòstic inicial"
+    },
+    {
+      "id": "8.3-D-009",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Quin és el termini general de destrucció de les gravacions policials segons l’article 18?",
+      "opcions": [
+        "15 dies",
+        "1 mes",
+        "3 mesos",
+        "6 mesos"
+      ],
+      "correcta": "C",
+      "explicacio": "Les gravacions es destrueixen, generalment, abans de 3 mesos, amb excepcions.",
+      "origen": "Diagnòstic inicial"
+    },
+    {
+      "id": "8.3-D-010",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Quant temps té el responsable per notificar una violació de seguretat a l’autoritat competent, amb caràcter general?",
+      "opcions": [
+        "24 hores",
+        "48 hores",
+        "72 hores",
+        "7 dies"
+      ],
+      "correcta": "C",
+      "explicacio": "La notificació és en 72 hores des del coneixement, amb les excepcions legals.",
+      "origen": "Diagnòstic inicial"
+    },
+    {
+      "id": "8.1-T-001",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "Quina és l’edat mínima per exercir el dret d’accés a la informació pública?",
+      "opcions": [
+        "14 anys",
+        "16 anys",
+        "18 anys",
+        "No hi ha edat mínima"
+      ],
+      "correcta": "B",
+      "explicacio": "Dret d’accés a partir dels 16 anys.",
+      "origen": "Test del tema 8.1"
+    },
+    {
+      "id": "8.1-T-002",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "L’exercici del dret d’accés requereix motivar la sol·licitud?",
+      "opcions": [
+        "Sempre",
+        "Només quan no es té interès directe",
+        "No",
+        "Només en matèria de seguretat"
+      ],
+      "correcta": "C",
+      "explicacio": "No exigeix motivació ni acreditar interès personal.",
+      "origen": "Test del tema 8.1"
+    },
+    {
+      "id": "8.1-T-003",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "Com s’han d’interpretar els límits del dret d’accés?",
+      "opcions": [
+        "De manera extensiva",
+        "Restrictivament",
+        "Discrecionalment",
+        "Sempre en favor de l’Administració"
+      ],
+      "correcta": "B",
+      "explicacio": "Interpretació restrictiva en benefici del dret d’accés.",
+      "origen": "Test del tema 8.1"
+    },
+    {
+      "id": "8.1-T-004",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "Quina majoria parlamentària designa els membres de la GAIP?",
+      "opcions": [
+        "Majoria simple",
+        "Majoria absoluta",
+        "Dos terços",
+        "Tres cinquenes parts"
+      ],
+      "correcta": "D",
+      "explicacio": "Designació per majoria de tres cinquenes parts del Parlament.",
+      "origen": "Test del tema 8.1"
+    },
+    {
+      "id": "8.1-T-005",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "Quant temps té la GAIP per resoldre una reclamació, sense considerar suspensions ni ampliacions?",
+      "opcions": [
+        "15 dies",
+        "1 mes",
+        "2 mesos",
+        "3 mesos"
+      ],
+      "correcta": "C",
+      "explicacio": "El termini ordinari de resolució és de 2 mesos.",
+      "origen": "Test del tema 8.1"
+    },
+    {
+      "id": "8.2-T-001",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "Quan acaba el deure de confidencialitat d’un treballador que ha tractat dades personals?",
+      "opcions": [
+        "Quan acaba el contracte",
+        "Al cap de 5 anys",
+        "No acaba pel fet de finalitzar la relació laboral",
+        "Quan les dades es publiquen"
+      ],
+      "correcta": "C",
+      "explicacio": "El deure de confidencialitat es manté després de la relació.",
+      "origen": "Test del tema 8.2"
+    },
+    {
+      "id": "8.2-T-002",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "Per sota de quina edat es requereix, com a regla general, el consentiment dels representants legals?",
+      "opcions": [
+        "12 anys",
+        "14 anys",
+        "16 anys",
+        "18 anys"
+      ],
+      "correcta": "B",
+      "explicacio": "El llindar general de consentiment propi és de 14 anys.",
+      "origen": "Test del tema 8.2"
+    },
+    {
+      "id": "8.2-T-003",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "El consentiment de l’afectat és l’única base jurídica per tractar dades personals?",
+      "opcions": [
+        "Sí",
+        "No",
+        "Sí, si són dades de salut",
+        "Sí, en el sector públic"
+      ],
+      "correcta": "B",
+      "explicacio": "Hi ha altres bases jurídiques, com l’obligació legal o l’interès públic.",
+      "origen": "Test del tema 8.2"
+    },
+    {
+      "id": "8.2-T-004",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "Quin és el termini general màxim de supressió d’imatges de videovigilància?",
+      "opcions": [
+        "15 dies",
+        "1 mes",
+        "3 mesos",
+        "6 mesos"
+      ],
+      "correcta": "B",
+      "explicacio": "Conservació general de videovigilància: màxim 1 mes.",
+      "origen": "Test del tema 8.2"
+    },
+    {
+      "id": "8.2-T-005",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "En el supòsit de videovigilància regulat per la llei, des de quan es compten les 72 hores per posar les imatges a disposició de l’autoritat competent?",
+      "opcions": [
+        "Des de la captació",
+        "Des de la instal·lació de la càmera",
+        "Des del coneixement de l’existència de la gravació",
+        "Des de la denúncia"
+      ],
+      "correcta": "C",
+      "explicacio": "Les 72 hores es computen des del coneixement de l’existència de la gravació.",
+      "origen": "Test del tema 8.2"
+    },
+    {
+      "id": "8.2-T-006",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "Qui determina les finalitats i els mitjans del tractament?",
+      "opcions": [
+        "L’encarregat",
+        "El delegat de protecció de dades",
+        "El responsable",
+        "L’afectat"
+      ],
+      "correcta": "C",
+      "explicacio": "El responsable determina finalitats i mitjans.",
+      "origen": "Test del tema 8.2"
+    },
+    {
+      "id": "8.2-T-007",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "Què passa si un encarregat utilitza les dades per a les seves pròpies finalitats?",
+      "opcions": [
+        "Continua sent encarregat",
+        "Es considera responsable del tractament",
+        "Queda exempt de responsabilitat",
+        "Ha de destruir automàticament totes les dades"
+      ],
+      "correcta": "B",
+      "explicacio": "En utilitzar dades per a finalitats pròpies, és responsable d’aquell tractament.",
+      "origen": "Test del tema 8.2"
+    },
+    {
+      "id": "8.2-T-008",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "Què significa el bloqueig de dades?",
+      "opcions": [
+        "Destruir-les immediatament",
+        "Fer-les accessibles públicament",
+        "Reservar-les i impedir-ne el tractament ordinari, amb les excepcions legals",
+        "Transferir-les a una altra administració"
+      ],
+      "correcta": "C",
+      "explicacio": "El bloqueig reserva les dades per a responsabilitats legals; no és destrucció.",
+      "origen": "Test del tema 8.2"
+    },
+    {
+      "id": "8.3-T-001",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Cada quant s’ha de revisar, com a màxim, la necessitat de conservar, limitar o suprimir dades personals?",
+      "opcions": [
+        "Cada any",
+        "Cada 2 anys",
+        "Cada 3 anys",
+        "Cada 5 anys"
+      ],
+      "correcta": "C",
+      "explicacio": "La revisió s’ha de fer, com a màxim, cada 3 anys.",
+      "origen": "Test del tema 8.3"
+    },
+    {
+      "id": "8.3-T-002",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Quin és el termini general màxim de supressió de dades personals, amb les excepcions previstes?",
+      "opcions": [
+        "5 anys",
+        "10 anys",
+        "15 anys",
+        "20 anys"
+      ],
+      "correcta": "D",
+      "explicacio": "El termini general és de 20 anys, amb excepcions.",
+      "origen": "Test del tema 8.3"
+    },
+    {
+      "id": "8.3-T-003",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "L’autorització d’ús de dispositius mòbils de gravació policial té una durada màxima de:",
+      "opcions": [
+        "15 dies prorrogables 15 dies",
+        "1 mes prorrogable 1 mes",
+        "2 mesos improrrogables",
+        "6 mesos prorrogables"
+      ],
+      "correcta": "B",
+      "explicacio": "Un mes d’autorització i un altre de possible pròrroga.",
+      "origen": "Test del tema 8.3"
+    },
+    {
+      "id": "8.3-T-004",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Quan s’utilitzen urgentment dispositius mòbils de gravació, quin és el termini màxim de comunicació?",
+      "opcions": [
+        "12 hores",
+        "24 hores",
+        "48 hores",
+        "72 hores"
+      ],
+      "correcta": "B",
+      "explicacio": "En cas d’urgència, comunicació dins de 24 hores.",
+      "origen": "Test del tema 8.3"
+    },
+    {
+      "id": "8.3-T-005",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Una gravació policial capta un possible delicte. Quin és el termini màxim per posar-la a disposició judicial?",
+      "opcions": [
+        "24 h des del coneixement",
+        "48 h des de la gravació",
+        "72 h des de la gravació",
+        "72 h des del coneixement"
+      ],
+      "correcta": "C",
+      "explicacio": "El còmput és des de la gravació, no des del coneixement.",
+      "origen": "Test del tema 8.3"
+    },
+    {
+      "id": "8.3-T-006",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Quin és el termini general de destrucció de gravacions policials?",
+      "opcions": [
+        "1 mes",
+        "2 mesos",
+        "3 mesos",
+        "6 mesos"
+      ],
+      "correcta": "C",
+      "explicacio": "Tres mesos des de la captació, amb excepcions.",
+      "origen": "Test del tema 8.3"
+    },
+    {
+      "id": "8.3-T-007",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Si una sol·licitud d’exercici dels drets no es resol expressament i notifica en un mes, què succeeix?",
+      "opcions": [
+        "S’entén estimada",
+        "S’entén desestimada",
+        "Es prorroga automàticament",
+        "S’arxiva sense resolució"
+      ],
+      "correcta": "B",
+      "explicacio": "El silenci és desestimatori.",
+      "origen": "Test del tema 8.3"
+    },
+    {
+      "id": "8.3-T-008",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Quantes sol·licituds sobre el mateix supòsit en sis mesos es consideren repetitives, excepte causa legítima?",
+      "opcions": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correcta": "B",
+      "explicacio": "Tres sol·licituds en sis mesos, amb excepció de causa legítima.",
+      "origen": "Test del tema 8.3"
+    },
+    {
+      "id": "8.3-T-009",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "En quant de temps s’ha de notificar una violació de seguretat a l’autoritat de control, com a regla general?",
+      "opcions": [
+        "24 h",
+        "48 h",
+        "72 h",
+        "7 dies"
+      ],
+      "correcta": "C",
+      "explicacio": "La notificació a l’autoritat té un termini de 72 hores des del coneixement.",
+      "origen": "Test del tema 8.3"
+    },
+    {
+      "id": "8.3-T-010",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Quan una violació de seguretat comporta indicis d’alt risc per a l’interessat, quan se li ha de comunicar, en general?",
+      "opcions": [
+        "En 24 hores",
+        "En 72 hores",
+        "En 1 mes",
+        "Sense dilació indeguda"
+      ],
+      "correcta": "D",
+      "explicacio": "Comunicació a l’interessat sense dilació indeguda, amb excepcions.",
+      "origen": "Test del tema 8.3"
+    },
+    {
+      "id": "8.3-T-011",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Quin termini té l’autoritat per assessorar per escrit en una consulta prèvia, amb caràcter general?",
+      "opcions": [
+        "15 dies",
+        "1 mes",
+        "6 setmanes",
+        "3 mesos"
+      ],
+      "correcta": "C",
+      "explicacio": "L’autoritat té 6 setmanes, prorrogables 1 mes.",
+      "origen": "Test del tema 8.3"
+    },
+    {
+      "id": "8.3-T-012",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "En quin termini s’ha de comunicar la designació o cessament del delegat de protecció de dades?",
+      "opcions": [
+        "5 dies",
+        "10 dies",
+        "15 dies",
+        "1 mes"
+      ],
+      "correcta": "B",
+      "explicacio": "Segons el temari, la comunicació s’ha de fer dins de 10 dies.",
+      "origen": "Test del tema 8.3"
+    },
+    {
+      "id": "8.1-G-001",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "Quina diferència hi ha entre publicitat activa i dret d’accés?",
+      "opcions": [
+        "La publicitat activa requereix una petició",
+        "La publicitat activa és informació difosa d’ofici",
+        "Són exactament el mateix",
+        "El dret d’accés només correspon als funcionaris"
+      ],
+      "correcta": "B",
+      "explicacio": "La publicitat activa no exigeix una sol·licitud prèvia.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.1-G-002",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "A partir de quina edat es pot exercir el dret d’accés a informació pública?",
+      "opcions": [
+        "14 anys",
+        "16 anys",
+        "18 anys",
+        "Sense límit d’edat"
+      ],
+      "correcta": "B",
+      "explicacio": "A partir dels 16 anys, sense necessitat de motivar la petició.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.1-G-003",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "Quina combinació activa el criteri percentual de transparència per subvencions?",
+      "opcions": [
+        "30% i més de 3.000 €",
+        "40% i més de 5.000 €",
+        "50% i més de 10.000 €",
+        "25% i més de 100.000 €"
+      ],
+      "correcta": "B",
+      "explicacio": "Almenys el 40% dels ingressos i una quantitat superior a 5.000 €.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.1-G-004",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "Com es tracta una petició d’accés amb dades especialment protegides?",
+      "opcions": [
+        "Sempre s’autoritza",
+        "Es pondera sempre com qualsevol dada ordinària",
+        "Es denega, llevat del consentiment exprés escrit previst",
+        "S’autoritza amb una petició verbal"
+      ],
+      "correcta": "C",
+      "explicacio": "El règim de les dades especialment protegides és diferent del de les dades ordinàries.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.1-G-005",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "Quina és la regla general per a dades merament identificatives vinculades a l’activitat pública?",
+      "opcions": [
+        "Denegació automàtica",
+        "Accés, excepte prevalença excepcional d’altres drets",
+        "Sempre ponderació com qualsevol dada privada",
+        "Consentiment notarial obligatori"
+      ],
+      "correcta": "B",
+      "explicacio": "L’accés és la regla general, amb excepcions.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.1-G-006",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "Quin és el termini per presentar una reclamació davant la GAIP?",
+      "opcions": [
+        "15 dies",
+        "1 mes",
+        "2 mesos",
+        "3 mesos"
+      ],
+      "correcta": "B",
+      "explicacio": "El termini és d’un mes en els supòsits previstos.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.1-G-007",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "Com es designen els membres de la GAIP?",
+      "opcions": [
+        "3 a 5 membres, majoria de 3/5 del Parlament",
+        "Exactament 3, majoria simple",
+        "5 a 7, majoria absoluta",
+        "Exactament 5, per decret"
+      ],
+      "correcta": "A",
+      "explicacio": "Entre tres i cinc membres, per majoria de tres cinquenes parts.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.1-G-008",
+      "bloc": 8,
+      "tema": "8.1",
+      "enunciat": "Quin efecte té una resolució de la GAIP?",
+      "opcions": [
+        "Es pot recórrer només davant la mateixa GAIP",
+        "No admet cap recurs judicial",
+        "Posa fi a la via administrativa i admet impugnació contenciosa administrativa",
+        "S’ha de validar sempre al Parlament"
+      ],
+      "correcta": "C",
+      "explicacio": "Les resolucions de la GAIP posen fi a la via administrativa.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.2-G-009",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "Quina és una finalitat principal de la LO 3/2018?",
+      "opcions": [
+        "Regular només la videovigilància policial",
+        "Adaptar l’ordenament espanyol al RGPD i garantir drets digitals",
+        "Regular exclusivament les investigacions penals",
+        "Regular les sancions de trànsit"
+      ],
+      "correcta": "B",
+      "explicacio": "Completa el RGPD i regula la garantia dels drets digitals.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.2-G-010",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "El deure de confidencialitat finalitza amb la relació laboral?",
+      "opcions": [
+        "Sí, immediatament",
+        "Sí, al cap d’un any",
+        "No, continua després de finalitzar-la",
+        "Només continua per a alts càrrecs"
+      ],
+      "correcta": "C",
+      "explicacio": "Es manté després d’acabar la relació amb el responsable o encarregat.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.2-G-011",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "Com ha de ser el consentiment?",
+      "opcions": [
+        "Lliure, específic, informat i inequívoc",
+        "Tàcit en tots els casos",
+        "Sempre verbal i sense informació prèvia",
+        "Genèric i irrevocable"
+      ],
+      "correcta": "A",
+      "explicacio": "Cal una manifestació de voluntat amb aquestes quatre característiques.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.2-G-012",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "Quin és el llindar general del consentiment propi del menor?",
+      "opcions": [
+        "12 anys",
+        "14 anys",
+        "16 anys",
+        "18 anys"
+      ],
+      "correcta": "B",
+      "explicacio": "El llindar legal és de 14 anys, amb les excepcions previstes.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.2-G-013",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "El mer consentiment sempre permet tractar dades especialment protegides?",
+      "opcions": [
+        "Sí, sense excepcions",
+        "Sí, si és verbal",
+        "No, hi ha tractaments en què és insuficient",
+        "Sí, sempre que es tracti de dades policials"
+      ],
+      "correcta": "C",
+      "explicacio": "Hi ha supòsits en què el consentiment per si sol no aixeca la prohibició.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.2-G-014",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "Quin és el termini general de supressió d’imatges de videovigilància?",
+      "opcions": [
+        "15 dies",
+        "1 mes",
+        "3 mesos",
+        "6 mesos"
+      ],
+      "correcta": "B",
+      "explicacio": "En el règim general de videovigilància, màxim un mes.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.2-G-015",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "En el supòsit previst de conservació per acreditar determinats actes, les 72 hores comencen quan…",
+      "opcions": [
+        "Es capten les imatges",
+        "Es denuncia el fet",
+        "Es coneix l’existència de la gravació",
+        "Es presenta una sol·licitud d’accés"
+      ],
+      "correcta": "C",
+      "explicacio": "La norma diu 72 hores des que es té coneixement de l’existència de la gravació.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.2-G-016",
+      "bloc": 8,
+      "tema": "8.2",
+      "enunciat": "Un encarregat utilitza dades per a finalitats pròpies. Quina consideració té?",
+      "opcions": [
+        "Continua sent únicament encarregat",
+        "Passa a ser responsable d’aquell tractament",
+        "Passa a ser delegat de protecció de dades",
+        "Queda exempt de les obligacions"
+      ],
+      "correcta": "B",
+      "explicacio": "L’ús de dades per a finalitats pròpies el converteix en responsable del tractament.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.3-G-017",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Cada quant s’ha de revisar, com a màxim, la necessitat de conservar les dades?",
+      "opcions": [
+        "Cada any",
+        "Cada 2 anys",
+        "Cada 3 anys",
+        "Cada 5 anys"
+      ],
+      "correcta": "C",
+      "explicacio": "La revisió és com a màxim cada tres anys.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.3-G-018",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Quin és el termini màxim general de supressió de dades, amb les excepcions justificades?",
+      "opcions": [
+        "5 anys",
+        "10 anys",
+        "15 anys",
+        "20 anys"
+      ],
+      "correcta": "D",
+      "explicacio": "El termini general és de vint anys, sense perjudici de les excepcions legals.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.3-G-019",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Quina durada màxima té l’autorització d’ús de dispositius mòbils de gravació?",
+      "opcions": [
+        "15 dies + 15 dies",
+        "1 mes + possible pròrroga d’1 mes",
+        "3 mesos improrrogables",
+        "6 mesos"
+      ],
+      "correcta": "B",
+      "explicacio": "Un mes inicial, prorrogable per un altre.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.3-G-020",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "En ús urgent de dispositius mòbils policials, quin és el termini màxim de comunicació?",
+      "opcions": [
+        "12 hores",
+        "24 hores",
+        "48 hores",
+        "72 hores"
+      ],
+      "correcta": "B",
+      "explicacio": "S’ha de comunicar tan aviat com sigui possible, sempre dins de 24 hores.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.3-G-021",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Una càmera policial grava un possible delicte. Quan s’ha de lliurar la gravació?",
+      "opcions": [
+        "72 hores des del coneixement",
+        "72 hores des de la gravació",
+        "1 mes des de la gravació",
+        "24 hores des de la denúncia"
+      ],
+      "correcta": "B",
+      "explicacio": "El màxim és de 72 hores des de la gravació, sens perjudici de fer-ho com més aviat millor.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.3-G-022",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Quin és el termini general de destrucció de gravacions policials?",
+      "opcions": [
+        "15 dies",
+        "1 mes",
+        "3 mesos",
+        "1 any"
+      ],
+      "correcta": "C",
+      "explicacio": "Tres mesos des de la captació, amb les excepcions corresponents.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.3-G-023",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Si no es resol i notifica una sol·licitud de drets en el termini general d’un mes…",
+      "opcions": [
+        "S’entén estimada",
+        "S’entén desestimada",
+        "S’amplia automàticament dos mesos",
+        "No té conseqüències"
+      ],
+      "correcta": "B",
+      "explicacio": "La llei estableix el silenci desestimatori.",
+      "origen": "Consolidació global"
+    },
+    {
+      "id": "8.3-G-024",
+      "bloc": 8,
+      "tema": "8.3",
+      "enunciat": "Com s’ha de comunicar una violació de seguretat?",
+      "opcions": [
+        "Autoritat sempre en 24 h; interessat en 72 h",
+        "Autoritat en 72 h, excepte risc improbable; interessat sense dilació indeguda si hi ha alt risc, amb excepcions",
+        "Autoritat i interessat sempre en 1 mes",
+        "Només s’ha de comunicar si hi ha una denúncia"
+      ],
+      "correcta": "B",
+      "explicacio": "La notificació a l’autoritat i la comunicació a l’interessat tenen condicions i terminis diferents.",
+      "origen": "Consolidació global"
+    }
+  ]
+}
